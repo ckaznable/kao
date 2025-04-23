@@ -14,7 +14,7 @@ use widget::face::FaceScreen;
 mod face;
 mod widget;
 
-const CACHE_SIZE: usize = 5;
+const CACHE_SIZE: usize = 3;
 
 #[derive(Clone, Debug)]
 struct PixmapCache {
@@ -71,7 +71,7 @@ impl FacePixmapStore {
 impl Default for FacePixmapStore {
     fn default() -> Self {
         Self {
-            caches: [const { None }; 5],
+            caches: [const { None }; CACHE_SIZE],
             index: 0,
         }
     }
