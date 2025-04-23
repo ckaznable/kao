@@ -23,7 +23,7 @@ pub static ANGRY_FACE: LazyLock<Cow<'static, str>> = LazyLock::new(|| {
         .leak())
 });
 
-#[derive(Copy, Clone, Debug, Default)]
+#[derive(Copy, Clone, Debug, Default, PartialEq, Eq)]
 pub enum Face {
     #[default]
     Normal,
@@ -32,7 +32,7 @@ pub enum Face {
 }
 
 impl Face {
-    fn to_svg(self) -> Cow<'static, str> {
+    pub fn to_svg(self) -> Cow<'static, str> {
         match self {
             Face::Normal => NORMAL_FACE.clone(),
             Face::Happy => HAPPY_FACE.clone(),
